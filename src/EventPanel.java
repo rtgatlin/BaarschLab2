@@ -13,8 +13,6 @@ public class EventPanel extends JPanel {
     public EventPanel(Event event) {
         setPreferredSize(new Dimension(600, 50));
         this.event = event;
-        //completeButton=new JButton("Complete");
-        //completeButton.setPreferredSize(new Dimension(50, 50));
         setBackground(new Color(150, 150, 50));
 
         JLabel eventLabel = new JLabel("Event: " + "\t");
@@ -34,6 +32,7 @@ public class EventPanel extends JPanel {
             completeButton.setPreferredSize(new Dimension(100, 20));
             completeButton.addActionListener(e->{
                 completeLabel.setText(String.valueOf(((Completable) event).isComplete()));
+                eventLabel.add(completeLabel);
                 revalidate();
                 repaint();
             });

@@ -13,5 +13,7 @@ public class EventPlanner {
         frame.setVisible(true);
     }
 
-    //public static addDefaultEvents(events: EventPanel): void
+    public static void addDefaultEvents(EventPanel events){
+
+    }
 }

@@ -1,3 +1,4 @@
+
 import javax.swing.*;
 import javax.swing.text.JTextComponent;
 import java.awt.*;
@@ -7,7 +8,7 @@ import java.util.ArrayList;
 
 import static java.lang.Integer.parseInt;
 
-/*
+
 public class AddEventModal extends JFrame{
     private EventListPanel eventListPanel;
     AddEventModal modal;
@@ -15,7 +16,9 @@ public class AddEventModal extends JFrame{
     ArrayList<Attribute> attributes;
     JPanel infoCollectorPanel;
     JComboBox<String> eventTypeComboBox;
-    LocalDateTime temporary;
+    LocalDateTime tempMeetStart;
+    LocalDateTime tempMeetEnd;
+    LocalDateTime tempDead;
 
     public static final String[] eventTypes =  {"Meeting", "Deadline"};
     public AddEventModal(){
@@ -47,7 +50,7 @@ public class AddEventModal extends JFrame{
         addAnimalButton.addActionListener(getEventCreator());
 
         panel.setPreferredSize(new Dimension(500, 500));
-        panel.add(addAnimalButton);
+        panel.add(addEventButton);
 
         return panel;
     }
@@ -84,14 +87,26 @@ public class AddEventModal extends JFrame{
     // It calls the appropriate constructor based on the AnimalTypeComboBox.
     // It then disposes of the creator modal.
     private ActionListener getEventCreator(){
+        int year=0;
+        int month=0;
+        int day=0;
+        int hour=0;
+        int minute=0;
+        LocalDateTime input;
         LocalDateTime now = LocalDateTime.now();
         return e -> {
             Event newEvent = new Deadline("Error", now);
             switch (eventTypeComboBox.getSelectedIndex()) {
                 case 0: {
-                    String year = Integer.valueOf;
-                    temporary = LocalDateTime.of(parseInt(getInput((attributes.get(1).value))), );
-                    newEvent = new Meeting(getInput(attributes.get(0).value), (getInput(attributes.get(1).value)).toString(),
+                    //
+
+                    int[] dateArray = new int[5];
+                    for (int i = 0; i < 5; i++) {
+                        dateArray[0] = parseInt(getInput(attributes.get(i).value));
+                    }
+                    tempMeetStart = LocalDateTime.of(dateArray[year],
+                            dateArray[month], dateArray[day], dateArray[hour], dateArray[minute]);
+                    newEvent = new Meeting(getInput(attributes.get(0).value), tempMeetStart
                     getInput(attributes.get(2).value), getInput(attributes.get(3).value));
                 }
             }
@@ -106,6 +121,3 @@ public class AddEventModal extends JFrame{
         return "";
     }
 }
-
-
- */

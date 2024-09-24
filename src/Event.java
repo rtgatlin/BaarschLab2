@@ -23,10 +23,7 @@ abstract class Event implements Comparable<Event> {
         return this.dateTime.compareTo(other.dateTime);
     }
     public String[] getDisplayStrings(){
-        String[] displayStrings = new String[2];
-        //for(int i = 0; i < 5; i++){
-        //    displayStrings[i] = "Null";
-        //}
+        String[] displayStrings = new String[0];
         return displayStrings;
     }
 }
