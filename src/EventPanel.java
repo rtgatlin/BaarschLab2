@@ -17,7 +17,7 @@ public class EventPanel extends JPanel {
         //completeButton.setPreferredSize(new Dimension(50, 50));
         setBackground(new Color(150, 150, 50));
 
-        JLabel eventLabel = new JLabel("Event: " + this.event.getName() + "\n");
+        JLabel eventLabel = new JLabel("Event: " + "\t");
         JLabel completeLabel;
         //JLabel complete label if instance of comparable
         //complete label.setText(event.isComplete)
@@ -71,10 +71,10 @@ public class EventPanel extends JPanel {
 
 
         int timeSpan = Period.between(now, eventDate).getDays();
-        if(timeSpan<0) {
+        if(timeSpan<3) {
             setBackground(Color.red);
         }
-        else if(timeSpan>0&& timeSpan<7){
+        else if(timeSpan>3&& timeSpan<7){
             setBackground(Color.yellow);
         }
         else {
