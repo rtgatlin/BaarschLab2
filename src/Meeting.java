@@ -5,7 +5,7 @@ import java.time.format.TextStyle;
 import java.util.Locale;
 
 public class Meeting extends Event implements Completable{
-    private boolean complete;
+    boolean complete;
     private LocalDateTime startDateTime;
     private LocalDateTime endDateTime;
     private String location;
@@ -22,6 +22,7 @@ public class Meeting extends Event implements Completable{
     public void complete(){
         complete = true;
     }
+
     public boolean isComplete(){
         return complete;
     }

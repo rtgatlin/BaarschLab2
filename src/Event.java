@@ -3,7 +3,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.TextStyle;
 import java.util.Locale;
 
-abstract class Event implements Comparable<Event> {
+public abstract class Event implements Comparable<Event> {
     String name;
     LocalDateTime dateTime;
 

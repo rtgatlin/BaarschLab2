@@ -31,18 +31,21 @@ public class EventPanel extends JPanel {
             completeButton.setFont(new Font("Arial", Font.BOLD, 10));
             completeButton.setPreferredSize(new Dimension(100, 20));
             completeButton.addActionListener(e->{
-                completeLabel.setText(String.valueOf(((Completable) event).isComplete()));
-                eventLabel.add(completeLabel);
+                ((Completable) event).complete();
+                //completeLabel.setText(String.valueOf(((Completable) event).isComplete()));
+                //eventLabel.add(completeLabel);
+                displayEvent();
                 revalidate();
                 repaint();
             });
+
 
             //USE THIS FOR BUTTON FUNCTIONALITY ((Completable) event).complete();
 
             add(completeButton);
         }
 
-        updateUrgency();
+       // updateUrgency();
     }
 
 

@@ -1,7 +1,7 @@
 import java.time.LocalDateTime;
 
 public class Deadline extends Event implements Completable{
-    boolean complete;
+    private boolean complete;
     public Deadline(String name, LocalDateTime time) {
         complete = false;
         this.setName(name);
@@ -10,6 +10,7 @@ public class Deadline extends Event implements Completable{
     public void complete(){
         complete = true;
     }
+
     public boolean isComplete(){
         return complete;
     }

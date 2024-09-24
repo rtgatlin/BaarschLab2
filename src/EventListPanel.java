@@ -79,36 +79,6 @@ public class EventListPanel extends JPanel{
         //display Panel
         displayPanel.setPreferredSize(new Dimension(700, 650));
         add(displayPanel);
-
-
-
-        LocalDateTime deadline = LocalDateTime.of(2024, 9, 25, 15, 0);
-        String lastDeadlineName = "Last Deadline";
-        String lastDeadlineNameAlt = "Final Deadline";
-        Deadline lastDeadline = new Deadline(lastDeadlineName, deadline );
-        Deadline firstDeadline = new Deadline("Lab 2", deadline);
-        Deadline midDeadline = new Deadline("First Deadline", deadline.plusDays(10) );
-
-        LocalDateTime start = LocalDateTime.of(2024, 10, 7, 15, 0);
-        LocalDateTime end = LocalDateTime.of(2024, 10, 7, 16, 0);
-        String location = "MCS 321";
-        String locationAlt =  "MCS 339";
-
-        Meeting firstMeeting = new Meeting("Cult Ritual", start, end, location);
-        Meeting lastMeeting = new Meeting("Brazilian Waxing", start.minusDays(8), end.minusDays(8), location);
-        Meeting midMeeting = new Meeting("Middle Meeting", start.plusDays(2), end.plusDays(2), location);
-
-
-
-
-       // addEvent(midDeadline);
-        addEvent(firstDeadline);
-       // addEvent(lastDeadline);
-        addEvent(firstMeeting);
-        addEvent(lastMeeting);
-        addEvent(midMeeting);
-
-
     }
 
     public void addEvent(Event e) {
@@ -122,6 +92,12 @@ public class EventListPanel extends JPanel{
         for(JCheckBox filter : filters) {
             if(filter.isSelected()) {
                 switch(filter.getText()){
+                    case "Completed":
+                        if(e instanceof Completable)
+                        {
+                            if(((Completable)e).isComplete())
+                                return true;
+                        }
                     case "Meetings":
                         if(e instanceof Meeting) {
                             return true;
