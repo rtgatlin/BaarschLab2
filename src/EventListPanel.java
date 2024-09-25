@@ -1,17 +1,9 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 import java.awt.event.ItemListener;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Collections;
-
-import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ItemEvent;
-import java.awt.event.ItemListener;
-import java.util.*;
-import java.util.function.Predicate;
+
 
 
 public class EventListPanel extends JPanel{
@@ -72,7 +64,9 @@ public class EventListPanel extends JPanel{
 
         //addEvent button
         addEventButton.setFont(new Font("Arial", Font.BOLD, 30));
-        //NEEDS FUNCTIONALITY addEventButton.addActionListener(e -> {})
+        addEventButton.addActionListener(e -> {
+            new AddEventModal(this);
+        });
         controlPanel.add(addEventButton);
 
 
@@ -98,6 +92,7 @@ public class EventListPanel extends JPanel{
                             if(((Completable)e).isComplete())
                                 return true;
                         }
+                        break;
                     case "Meetings":
                         if(e instanceof Meeting) {
                             return true;

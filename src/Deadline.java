@@ -14,6 +14,10 @@ public class Deadline extends Event implements Completable{
     public boolean isComplete(){
         return complete;
     }
+
+    //this is used to help the computer discern the difference between meetings and deadlines
+    //deadlines have an array that stores the name, start DateTime, end DateTime, and completion status
+
     public String[] getDisplayStrings(){
         String[] displayStrings = new String[3];
         displayStrings[0] = "Name: " + this.getName();

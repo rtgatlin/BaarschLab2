@@ -22,10 +22,11 @@ public class Meeting extends Event implements Completable{
     public void complete(){
         complete = true;
     }
-
     public boolean isComplete(){
         return complete;
     }
+
+    //behold: the hell that is getters and setters
     public String getName(){
         return super.getName();
     }
@@ -51,10 +52,13 @@ public class Meeting extends Event implements Completable{
         this.location=location;
     }
     public void setDuration(LocalDateTime time, LocalDateTime end){
-       // int duration=0;
         Duration duration = Duration.between(time, end);
         this.duration=duration;
     }
+
+    //this is used to help the computer discern the difference between meetings and deadlines
+    //meetings have an array that stores the name, start DateTime, end DateTime, location, duration,
+    //and completion status
     public String[] getDisplayStrings(){
         String[] displayStrings;
         displayStrings=new String[6];
@@ -63,6 +67,7 @@ public class Meeting extends Event implements Completable{
         displayStrings[2]="End : " + endDateTime.toString();
         displayStrings[3]="Location: " + location;
         displayStrings[4]="Duration: " + duration.toString();
+        //tests if the event is complete before deciding
         if(this.isComplete()){
             displayStrings[5] = "Completion Status: Completed";
         }
